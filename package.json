@@ -1,0 +1,19 @@
+{
+  "name": "generator-simple-redux",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+  },
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "Alexander C Rees <me@acrees.co.uk>",
+  "license": "Apache-2.0",
+  "files": [
+    "generators/app",
+    "generators/component"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.24.1"
+  }
+}
