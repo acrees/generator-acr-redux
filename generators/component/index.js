@@ -1,4 +1,5 @@
 var generators = require('yeoman-generator');
+var path = require('path');
 
 const ComponentType = 0;
 const ControllerType = 1;
@@ -48,7 +49,7 @@ module.exports = generators.Base.extend({
     var filename = kebaberise(this.componentName);
     this.fs.copyTpl(
       this.templatePath(tpl),
-      this.destinationPath(filename + '.jsx'),
+      this.destinationPath(path.combine('src', filename, 'index.jsx')),
       { name: this.componentName }
     );
   }
