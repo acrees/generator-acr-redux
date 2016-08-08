@@ -14,11 +14,11 @@ module.exports = generators.Base.extend({
   writing: function () {
     this.fs.copy(
       this.templatePath('actions.js'),
-      this.destinationPath('src/js/actions.js')
+      this.destinationPath('src/actions.js')
     );
     this.fs.copyTpl(
-      this.templatePath('app.jsx'),
-      this.destinationPath('src/js/app.jsx')
+      this.templatePath('root.jsx'),
+      this.destinationPath('src/root/index.jsx')
     );
     this.fs.copyTpl(
       this.templatePath('Dockerfile'),
@@ -26,7 +26,7 @@ module.exports = generators.Base.extend({
     );
     this.fs.copyTpl(
       this.templatePath('entry.js'),
-      this.destinationPath('src/js/entry.js')
+      this.destinationPath('src/entry.js')
     );
     this.fs.copyTpl(
       this.templatePath('index.html'),
@@ -35,7 +35,7 @@ module.exports = generators.Base.extend({
     );
     this.fs.copyTpl(
       this.templatePath('index.jsx'),
-      this.destinationPath('src/js/index.jsx')
+      this.destinationPath('src/index.jsx')
     );
     this.fs.copyTpl(
       this.templatePath('_package.json'),
@@ -49,7 +49,7 @@ module.exports = generators.Base.extend({
     );
     this.fs.copy(
       this.templatePath('reducers.js'),
-      this.destinationPath('src/js/reducers.js')
+      this.destinationPath('src/reducers.js')
     );
     this.fs.copy(
       this.templatePath('server.js'),
