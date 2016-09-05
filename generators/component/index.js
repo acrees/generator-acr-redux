@@ -4,27 +4,22 @@ var path = require('path');
 const ComponentType = 0;
 const ControllerType = 1;
 
-function kebaberise(str) {
+function toTitleCase(str) {
   return str
-    .split()
+    .split('-')
     .reduce(function (acc, next) {
-      if(isNaN(next * 1) && next === next.toUpperCase()) {
-        return acc + '-' + next.toLowerCase();
-      }
-      return acc + next;
-    })
-    .join('');
+      return acc + next[0].toUpperCase() + next.slice(1);
+    }, '');
 }
 
 module.exports = generators.Base.extend({
   prompting: function () {
-    var done = this.async();
-    this.prompt([
+    return this.prompt([
       {
         type    : 'input',
         name    : 'name',
         message : 'Component name',
-        default : this.appname
+        default : 'my-component'
       },
       {
         type: 'list',
@@ -36,21 +31,20 @@ module.exports = generators.Base.extend({
           { name: 'Stateful controller', value: ControllerType }
         ]
       }
-    ], function (answers) {
+    ]).then(function (answers) {
       this.componentName = answers.name;
       this.componentType = answers.type;
-      done();
     }.bind(this));
   },
   writing: function () {
-    var tpl = this.componentType == ControllerType)
+    var tpl = this.componentType == ControllerType
       ? 'controller.jsx'
       : 'component.jsx';
-    var filename = kebaberise(this.componentName);
+    var typeName = toTitleCase(this.componentName);
     this.fs.copyTpl(
       this.templatePath(tpl),
-      this.destinationPath(path.combine('src', filename, 'index.jsx')),
-      { name: this.componentName }
+      this.destinationPath(path.join('src', this.componentName, 'index.jsx')),
+      { name: typeName }
     );
   }
 });
