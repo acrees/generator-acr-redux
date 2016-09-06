@@ -3,7 +3,7 @@ import createLogger from 'redux-logger';
 import { createStore, applyMiddleware } from 'redux';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import App from './app.jsx';
+import Root from './root';
 import { root as reducer } from './reducers';
 
 const loggerMiddleware = createLogger();
@@ -16,7 +16,7 @@ const store = createStoreWithMiddleware(reducer);
 
 render(
   <Provider store={store}>
-    <App></App>
+    <Root></Root>
   </Provider>,
   document.getElementById('app-container')
 );
