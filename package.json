@@ -1,11 +1,14 @@
 {
-  "name": "generator-simple-redux",
+  "name": "generator-acr-redux",
   "version": "0.1.0",
-  "description": "",
+  "description": "A simple generator based on how I structure redux apps",
   "scripts": {
   },
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "react",
+    "redux",
+    "react-redux"
   ],
   "author": "Alexander C Rees <me@acrees.co.uk>",
   "license": "MIT",
