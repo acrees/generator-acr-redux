@@ -1,6 +1,6 @@
 {
   "name": "generator-acr-redux",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A simple generator based on how I structure redux apps",
   "scripts": {
   },
