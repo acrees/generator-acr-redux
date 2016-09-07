@@ -42,7 +42,7 @@ if(app.get('env') !== 'production') {
   var webpackMiddleware = require('webpack-dev-middleware');
   var lrserver = require('tiny-lr')();
   var lrMiddleware = require('connect-livereload');
-  var lrport = 8081;
+  var lrport = 8082;
 
   var triggerLiveReloadChanges = function() {
       lrserver.changed({

@@ -11,5 +11,5 @@ COPY package.json /usr/src/app/
 RUN npm install
 COPY . /usr/src/app
 
-EXPOSE 8080 8081
+EXPOSE 8080 8082
 CMD ["nodejs", "server.js"]
