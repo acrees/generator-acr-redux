@@ -32,7 +32,8 @@ var webpackConf = {
   },
   context: path.resolve(__dirname, 'src'),
   entry: './entry.js',
-  output: { path: '/', filename: 'bundle.js' }
+  output: { path: '/', filename: 'bundle.js' },
+  devtool: '#source-map'
 };
 var compiler = webpack(webpackConf);
 
