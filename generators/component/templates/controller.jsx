@@ -1,5 +1,5 @@
+import React from 'react';
 import { connect } from 'react-redux';
-import { Component } from 'react';
 
 function mapStateToProps(state) {
   return { };
@@ -9,7 +9,7 @@ function mapDispatchToProps(dispatch) {
   return { };
 }
 
-class <%= name %> extends Component {
+class <%= name %> extends React.Component {
   render() {
     return (
       <div>Hello!</div>
