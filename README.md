@@ -1,4 +1,4 @@
-# generator-simple-redux
+# generator-acr-redux
 Generator for the redux architecture I tend to follow
 
 ## Generators
