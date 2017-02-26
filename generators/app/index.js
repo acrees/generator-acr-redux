@@ -13,20 +13,29 @@ module.exports = generators.Base.extend({
   },
   writing: function () {
     this.fs.copy(
-      this.templatePath('actions.js'),
-      this.destinationPath('src/actions.js')
+      this.templatePath('_babelrc'),
+      this.destinationPath('.babelrc')
+    );
+    this.fs.copy(
+      this.templatePath('_eslintrc'),
+      this.destinationPath('.eslintrc')
+    );
+    this.fs.copy(
+      this.templatePath('_gitignore'),
+      this.destinationPath('.gitignore')
     );
     this.fs.copyTpl(
-      this.templatePath('root.jsx'),
-      this.destinationPath('src/root/index.jsx')
+      this.templatePath('_package.json'),
+      this.destinationPath('package.json'),
+      { name: this.projectName }
+    );
+    this.fs.copyTpl(
+      this.templatePath('build.js'),
+      this.destinationPath('build.js')
     );
     this.fs.copyTpl(
       this.templatePath('Dockerfile'),
       this.destinationPath('Dockerfile')
-    );
-    this.fs.copyTpl(
-      this.templatePath('entry.js'),
-      this.destinationPath('src/entry.js')
     );
     this.fs.copyTpl(
       this.templatePath('index.html'),
@@ -38,11 +47,6 @@ module.exports = generators.Base.extend({
       this.destinationPath('src/index.jsx')
     );
     this.fs.copyTpl(
-      this.templatePath('_package.json'),
-      this.destinationPath('package.json'),
-      { name: this.projectName }
-    );
-    this.fs.copyTpl(
       this.templatePath('readme.md'),
       this.destinationPath('readme.md'),
       { title: this.projectName }
@@ -51,9 +55,25 @@ module.exports = generators.Base.extend({
       this.templatePath('reducers.js'),
       this.destinationPath('src/reducers.js')
     );
+    this.fs.copyTpl(
+      this.templatePath('root.jsx'),
+      this.destinationPath('src/root/index.jsx')
+    );
     this.fs.copy(
       this.templatePath('server.js'),
       this.destinationPath('server.js')
+    );
+    this.fs.copy(
+      this.templatePath('testIndex.jsx'),
+      this.destinationPath('test/index.jsx')
+    );
+    this.fs.copy(
+      this.templatePath('testSetup.js'),
+      this.destinationPath('testSetup.js')
+    );
+    this.fs.copy(
+      this.templatePath('webpack.config.js'),
+      this.destinationPath('webpack.config.js')
     );
   }
 });

@@ -1,18 +1,16 @@
 import React from 'react'
-import createLogger from 'redux-logger';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { createStore, applyMiddleware } from 'redux';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import Root from './root';
 import { root as reducer } from './reducers';
 
-const loggerMiddleware = createLogger();
-
-const createStoreWithMiddleware = applyMiddleware(
-  loggerMiddleware
-)(createStore);
-
-const store = createStoreWithMiddleware(reducer);
+const store = createStore(reducer,
+  composeWithDevTools(
+    applyMiddleware()
+  )
+);
 
 render(
   <Provider store={store}>
